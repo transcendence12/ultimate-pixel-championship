@@ -1,0 +1,39 @@
+.welcome-title,
+.welcome-title-span {
+   font-family: "Germania One", system-ui;
+   font-size: 45px;
+   font-weight: 400;
+   line-height: 42px;
+   text-align: center;
+}
+.welcome-title {
+   text-transform: capitalize;
+   margin-top: 139px;
+}
+
+.welcome-title-span {
+   display: inline-block;
+   color: #da8b14;
+   border-bottom: 4px dashed #da8b14;
+
+   margin-bottom: 22px;
+}
+
+.welcome-logo {
+   width: 60px;
+   height: 60px;
+   background-image: url('../assets/images/swords.png');
+}
+
+.welcome-text-paragraph {
+    font-family: "Roboto Mono", monospace;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: center;
+    color: #EFB55E;
+    margin-top: 16px;
+    margin-bottom: 50px;
+    margin-left: 49px;
+    margin-right: 49px;
+ }
