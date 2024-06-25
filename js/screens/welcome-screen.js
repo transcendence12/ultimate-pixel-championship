@@ -4,7 +4,7 @@ import { createButtonPrimary } from '../components/buttons/button-primary.js';
 
 export const welcomeScreen = () => {
    const welcomeScreenWrapper = document.createElement('div');
-   welcomeScreenWrapper.classList.add('app-container');
+   welcomeScreenWrapper.classList.add('welcome-app-container');
 
    const marginTop = createMarginTop();
    // welcomeScreenWrapper.innerText = 'Welcome screen';
@@ -20,6 +20,7 @@ export const welcomeScreen = () => {
    welcomeTextParagraph.classList.add('welcome-text-paragraph');
    welcomeTextParagraph.innerText = 'Fill out the form to sign up for upcoming tournee.';
    const buttonPrimary = createButtonPrimary();
+
    const marginBottom = createMarginBottom();
    welcomeScreenWrapper.append(
       marginTop,
