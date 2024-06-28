@@ -1,0 +1,60 @@
+.fighter-profile-element {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+   /* position: relative; */
+}
+
+.fighter-avatar {
+   width: 166px;
+   height: 166px;
+   max-width: 100%;
+   position: relative;
+}
+
+.fighter-name {
+   font-family: 'Germania One';
+   font-size: 30px;
+   font-weight: 400;
+   line-height: 35px;
+   text-align: center;
+
+   margin-top: 10px;
+}
+
+.box-with-arrows-and-name {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   position: relative;
+}
+
+.arrow-prev {
+   background-image: url('../assets/icons/arrow-prev.svg');
+
+   width: 52px;
+   height: 61px;
+   position: absolute;
+
+   visibility: hidden;
+
+   left: -98px;
+   border: none;
+   gap: 10px;
+   opacity: 1px;
+}
+
+.arrow-next {
+   background-image: url('../assets/icons/arrow-next.svg');
+   width: 52px;
+   height: 61px;
+   position: absolute;
+   border: none;
+
+   left: 220px;
+
+   gap: 10px;
+   opacity: 1px;
+}

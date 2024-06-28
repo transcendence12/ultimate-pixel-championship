@@ -1,0 +1,8 @@
+.stepper-element {
+   max-width: 100%;
+   width: 147px;
+   height: 25px;
+   margin: 10px auto;
+   text-align: center;
+   background: url('../assets/images/step1.png');
+}

@@ -13,6 +13,7 @@ export const initWizard = () => {
    const maxSteps = steps.length;
 
    const wizardWrapper = document.createElement('div');
+   wizardWrapper.classList.add('general-wizard-wrapper');
 
    // I displaying only active step in my HTML
    wizardWrapper.append(steps[currentStepIndex]);
