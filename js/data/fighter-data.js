@@ -51,6 +51,6 @@ export const fighterData = [
       attackMax: 14,
       specialAttack: 'Potion Pill',
       weakness: 'Broccoli',
-      imageUrl: '../assets/images/fighter6.png',
+      imageUrl: '../assets/images/fighter7.png',
    },
 ];

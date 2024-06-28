@@ -1,6 +1,6 @@
 import { fighterData } from '../../../data/fighter-data.js';
 
-export const createSpecialAttributs = () => {
+export const createSpecialAttributs = (fighter) => {
    const specialAttributs = document.createElement('div');
    specialAttributs.classList.add('special-attributs');
    const specialAttributsaAttackTitle = document.createElement('span');
@@ -8,7 +8,7 @@ export const createSpecialAttributs = () => {
    specialAttributsaAttackTitle.innerText = 'SPECIAL ATTACK';
    const specialAttributsAttackDescription = document.createElement('span');
    specialAttributsAttackDescription.classList.add('special-attributs-attack-description');
-   specialAttributsAttackDescription.innerText = `${fighterData[0].specialAttack}`;
+   specialAttributsAttackDescription.innerText = fighter.specialAttack;
 
    const specialAttributsWeaknessTitle = document.createElement('span');
    specialAttributsWeaknessTitle.classList.add('special-attributs-weakness-title');
@@ -16,7 +16,7 @@ export const createSpecialAttributs = () => {
 
    const specialAttributsWeaknessDescription = document.createElement('span');
    specialAttributsWeaknessDescription.classList.add('special-attributs-weakness-description');
-   specialAttributsWeaknessDescription.innerText = `${fighterData[0].weakness}`;
+   specialAttributsWeaknessDescription.innerText = fighter.weakness;
 
    specialAttributs.append(
       specialAttributsaAttackTitle,
