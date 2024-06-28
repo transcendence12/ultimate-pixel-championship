@@ -1,6 +1,6 @@
 import { fighterData } from '../../../data/fighter-data.js';
 
-export const displayFighterPoints = () => {
+export const displayFighterPoints = (fighter) => {
    const pointsAttributes = document.createElement('div');
    pointsAttributes.classList.add('points-attributes');
    const healthPointGroup = document.createElement('div');
@@ -9,7 +9,7 @@ export const displayFighterPoints = () => {
    healthTitle.innerText = 'HEALTH';
    const healthTitlePointValue = document.createElement('span');
    healthTitlePointValue.classList.add('health-title-point-value');
-   healthTitlePointValue.innerText = `${fighterData[0].health}`;
+   healthTitlePointValue.innerText = fighter.health;
    healthPointGroup.append(healthTitle, healthTitlePointValue);
    const attackPointGroup = document.createElement('div');
    attackPointGroup.classList.add('attack-point');
@@ -18,8 +18,9 @@ export const displayFighterPoints = () => {
    attackPointGroupTitle.innerText = 'ATTACK';
    const displayMinMaxAttackPoints = document.createElement('span');
    displayMinMaxAttackPoints.classList.add('display-min-max-attack-points');
-   displayMinMaxAttackPoints.innerText = `${fighterData[0].attackMin} - ${fighterData[0].attackMax}`;
+   displayMinMaxAttackPoints.innerText = `${fighter.attackMin} - ${fighter.attackMax}`;
    attackPointGroup.append(attackPointGroupTitle, displayMinMaxAttackPoints);
    pointsAttributes.append(healthPointGroup, attackPointGroup);
+
    return pointsAttributes;
 };
