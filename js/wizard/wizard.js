@@ -1,22 +1,55 @@
 import { chooseFighterStep } from './steps/choose-fighter-step/choose-fighter-step.js';
 import { bookingDetailsStep } from './steps/booking-details-step/booking-details-step.js';
 import { bookingConfirmationStep } from './steps/booking-confirmation-step/booking-confirmation-step.js';
+import { createStepper } from '../components/stepper/stepper.js';
 
-export const initWizard = () => {
-   // I keep steps in the array, so Im able to navigate through
-   const steps = [chooseFighterStep(), bookingDetailsStep(), bookingConfirmationStep()];
-
-   // I need to monitor which step is active. You can change value to see how step changes. Try 2 for example.
-   const currentStepIndex = 0;
-
-   // I need to know max steps amount, to prevent going to far
-   const maxSteps = steps.length;
+export const initWizard = (appState) => {
+   if (!appState) {
+      throw new Error('appState is required in initWizard');
+   }
 
    const wizardWrapper = document.createElement('div');
    wizardWrapper.classList.add('general-wizard-wrapper');
 
-   // I displaying only active step in my HTML
-   wizardWrapper.append(steps[currentStepIndex]);
+   let currentStep = 1;
+   let currentContent = null;
 
+   const updateStepContent = () => {
+      if (currentContent) {
+         currentContent.remove();
+      }
+
+      appState.currentStepIndex = currentStep;
+
+      switch(currentStep) {
+         case 1:
+            currentContent = chooseFighterStep(appState);
+            break;
+         case 2:
+            currentContent = bookingDetailsStep(appState);
+            break;
+         case 3:
+            currentContent = bookingConfirmationStep(appState);
+            break;
+      }
+
+      wizardWrapper.innerHTML = '';
+      wizardWrapper.append(currentContent);
+
+      if (currentStep === 1) {
+         const chooseButton = wizardWrapper.querySelector('.button-primary');
+         if (chooseButton) {
+            chooseButton.addEventListener('click', () => {
+               if (appState.currentFighter) {
+                  appState.fighterName = appState.currentFighter.name;
+                  currentStep = 2;
+                  updateStepContent();
+               }
+            });
+         }
+      }
+   };
+
+   updateStepContent();
    return wizardWrapper;
 };
