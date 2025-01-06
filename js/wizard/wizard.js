@@ -40,11 +40,19 @@ export const initWizard = (appState) => {
          const chooseButton = wizardWrapper.querySelector('.button-primary');
          if (chooseButton) {
             chooseButton.addEventListener('click', () => {
-               if (appState.currentFighter) {
-                  appState.fighterName = appState.currentFighter.name;
-                  currentStep = 1;
-                  updateStepContent();
+               if (!appState.currentFighter) {
+                  console.warn('Please select a fighter first');
+                  return;
                }
+               
+               // Store complete fighter data
+               appState.selectedFighter = {
+                  ...appState.currentFighter,
+                  selectedAt: new Date().toISOString()
+               };
+               
+               currentStep = 1;
+               updateStepContent();
             });
          }
       }

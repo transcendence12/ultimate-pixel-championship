@@ -80,7 +80,7 @@ export const createFighter = (appState) => {
          }
       });
 
-      // Update appState with current fighter
+      // Fighter is stored in appState when arrows are clicked or initially loaded
       appState.currentFighter = fighter;
    }
 
