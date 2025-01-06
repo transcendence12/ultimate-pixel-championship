@@ -15,7 +15,15 @@ export const bookingDetailsStep = (appState) => {
    const stepper = createStepper(appState.currentStepIndex);
 
    const bookingDetailsContent = document.createElement('div');
-   bookingDetailsContent.innerText = 'Booking details content';
+   
+   // Show selected fighter info
+   const selectedFighterInfo = document.createElement('div');
+   selectedFighterInfo.classList.add('selected-fighter-info');
+   selectedFighterInfo.innerHTML = `
+      <p>Selected Fighter: <strong>${appState.selectedFighter?.name || 'None'}</strong></p>
+   `;
+
+   bookingDetailsContent.append(selectedFighterInfo);
 
    stepWrapper.append(title, stepper, bookingDetailsContent);
    return stepWrapper;

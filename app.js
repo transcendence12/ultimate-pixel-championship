@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
    const appState = {
       currentStepIndex: 0,
       currentFighter: null,
+      selectedFighter: null,
       fighterName: '',
       playerName: '',
       playerEmail: '',
