@@ -11,7 +11,7 @@ export const initWizard = (appState) => {
    const wizardWrapper = document.createElement('div');
    wizardWrapper.classList.add('general-wizard-wrapper');
 
-   let currentStep = 1;
+   let currentStep = 0;
    let currentContent = null;
 
    const updateStepContent = () => {
@@ -22,13 +22,13 @@ export const initWizard = (appState) => {
       appState.currentStepIndex = currentStep;
 
       switch(currentStep) {
-         case 1:
+         case 0:
             currentContent = chooseFighterStep(appState);
             break;
-         case 2:
+         case 1:
             currentContent = bookingDetailsStep(appState);
             break;
-         case 3:
+         case 2:
             currentContent = bookingConfirmationStep(appState);
             break;
       }
@@ -36,13 +36,13 @@ export const initWizard = (appState) => {
       wizardWrapper.innerHTML = '';
       wizardWrapper.append(currentContent);
 
-      if (currentStep === 1) {
+      if (currentStep === 0) {
          const chooseButton = wizardWrapper.querySelector('.button-primary');
          if (chooseButton) {
             chooseButton.addEventListener('click', () => {
                if (appState.currentFighter) {
                   appState.fighterName = appState.currentFighter.name;
-                  currentStep = 2;
+                  currentStep = 1;
                   updateStepContent();
                }
             });

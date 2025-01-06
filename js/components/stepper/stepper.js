@@ -1,9 +1,9 @@
-export const createStepper = (currentStep = 1) => {
+export const createStepper = (currentStep = 0) => {
    const createStepperElement = document.createElement('div');
    createStepperElement.classList.add('stepper-element');
    
-   // Set the background image based on current step
-   createStepperElement.style.background = `url('../assets/images/step${currentStep}.png')`;
+   // Add 1 to currentStep for image names since they start from 1
+   createStepperElement.style.background = `url('../assets/images/step${currentStep + 1}.png')`;
    
    return createStepperElement;
 };
