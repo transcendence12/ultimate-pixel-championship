@@ -4,8 +4,17 @@ import router from './js/router/router.js';
 
 document.addEventListener('DOMContentLoaded', () => {
    const app = document.querySelector('#app');
+   
+   const appState = {
+      currentStepIndex: 1,
+      currentFighter: null,
+      fighterName: '',
+      playerName: '',
+      playerEmail: '',
+   };
+
    const displayWelcomeScreen = welcomeScreen();
-   const displayWizardScreen = wizardScreen();
+   const displayWizardScreen = wizardScreen(appState);
 
    // Display welcome screen
    app.append(displayWelcomeScreen);

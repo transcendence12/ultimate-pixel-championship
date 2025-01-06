@@ -2,7 +2,11 @@ import { fighterData } from '../../../data/fighter-data.js';
 import { displayFighterPoints } from './display-fighter-points.js';
 import { createSpecialAttributs } from './create-special-attributs.js';
 
-export const createFighter = () => {
+export const createFighter = (appState) => {
+   if (!appState) {
+      throw new Error('appState is required in createFighter');
+   }
+
    let currentIndex = 0;
 
    const fighterContainer = document.createElement('div');
@@ -75,6 +79,9 @@ export const createFighter = () => {
             updateFighterProfile(currentIndex);
          }
       });
+
+      // Update appState with current fighter
+      appState.currentFighter = fighter;
    }
 
    updateFighterProfile(currentIndex);

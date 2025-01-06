@@ -2,18 +2,22 @@ import { createStepper } from '../../../components/stepper/stepper.js';
 import { createFighter } from './create-fighter.js';
 import { createButtonPrimary } from '../../../components/buttons/button-primary.js';
 
-export const chooseFighterStep = () => {
-   const chooseFighterStepWrapper = document.createElement('div');
-   chooseFighterStepWrapper.classList.add('general-fighters-step-wrapper');
+export const chooseFighterStep = (appState) => {
+   if (!appState) {
+      throw new Error('appState is required in chooseFighterStep');
+   }
 
-   const fightersTitle = document.createElement('h1');
-   fightersTitle.classList.add('fighters-title');
-   fightersTitle.innerText = 'Choose your fighter';
+   const stepWrapper = document.createElement('div');
+   stepWrapper.classList.add('general-fighters-step-wrapper');
 
-   const step1 = createStepper();
+   const title = document.createElement('h1');
+   title.classList.add('fighters-title');
+   title.innerText = 'Choose your fighter';
 
-   const fighterItem = createFighter();
-   const btnPrimary = createButtonPrimary();
-   chooseFighterStepWrapper.append(fightersTitle, step1, fighterItem, btnPrimary);
-   return chooseFighterStepWrapper;
+   const stepper = createStepper(appState.currentStepIndex);
+   const fighterComponent = createFighter(appState);
+   const chooseButton = createButtonPrimary();
+
+   stepWrapper.append(title, stepper, fighterComponent, chooseButton);
+   return stepWrapper;
 };
