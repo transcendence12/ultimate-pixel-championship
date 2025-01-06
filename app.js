@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
    const app = document.querySelector('#app');
    
    const appState = {
-      currentStepIndex: 1,
+      currentStepIndex: 0,
       currentFighter: null,
       fighterName: '',
       playerName: '',
